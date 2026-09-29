@@ -5,7 +5,7 @@
   "depart_from": "2027-05-15",
   "depart_to": "2027-06-04",
   "stay_min_days": 25,
-  "stay_max_days": 35,
+  "stay_max_days": 32,
 
   "max_stops": 2,
   "adults": 1,
