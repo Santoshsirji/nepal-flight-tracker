@@ -9,7 +9,7 @@
     "stops": 1,
     "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDUtMTcoAmoFEgNKRktyBRIDS1RNGhwSCjIwMjctMDYtMTMoAmoFEgNLVE1yBRIDSkZLQgEBSAGYAQE=&hl=en-US&curr=USD"
   },
-  "last_alerted_price": null,
+  "last_alerted_price": 1361,
   "current_best": {
     "price": 1361,
     "origin": "JFK",
@@ -117,6 +117,14 @@
     {
       "time": "2026-09-29T23:34+00:00",
       "mode": "quick",
+      "price": 1361,
+      "depart": "2027-05-17",
+      "return": "2027-06-13",
+      "origin": "JFK"
+    },
+    {
+      "time": "2026-09-29T23:57+00:00",
+      "mode": "full",
       "price": 1361,
       "depart": "2027-05-17",
       "return": "2027-06-13",
