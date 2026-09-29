@@ -1,0 +1,19 @@
+{
+  "origins": ["JFK", "EWR"],
+  "destination": "KTM",
+
+  "depart_from": "2027-05-15",
+  "depart_to": "2027-06-04",
+  "stay_min_days": 25,
+  "stay_max_days": 35,
+
+  "max_stops": 2,
+  "adults": 1,
+
+  "target_price": 1000,
+  "alert_on_any_new_low": false,
+  "daily_summary": true,
+  "daily_summary_hour_utc": 14,
+
+  "quick_check_top_n": 5
+}

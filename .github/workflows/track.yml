@@ -1,0 +1,56 @@
+name: Track flights
+
+on:
+  schedule:
+    - cron: "5 */3 * * *"    # full scan of every date pair, every 3 hours
+    - cron: "*/20 * * * *"   # quick re-check of the cheapest pairs, every 20 min
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "full, quick, or test"
+        default: "full"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tracker
+  cancel-in-progress: false
+
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Run tracker
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            MODE="${{ inputs.mode }}"
+          elif [ "${{ github.event.schedule }}" = "5 */3 * * *" ]; then
+            MODE=full
+          else
+            MODE=quick
+          fi
+          python tracker.py "$MODE"
+
+      - name: Save state
+        if: always()
+        run: |
+          git config user.name "flight-tracker-bot"
+          git config user.email "flight-tracker-bot@users.noreply.github.com"
+          git add state.json 2>/dev/null || exit 0
+          git diff --cached --quiet && exit 0
+          git commit -m "Update flight state"
+          git pull --rebase
+          git push
