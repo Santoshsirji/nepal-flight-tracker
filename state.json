@@ -1,0 +1,62 @@
+{
+  "best_ever": {
+    "price": 1361,
+    "origin": "JFK",
+    "depart": "2027-05-17",
+    "return": "2027-06-13",
+    "airlines": "Cathay Pacific",
+    "route": "JFK > HKG > KTM",
+    "stops": 1,
+    "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDUtMTcoAmoFEgNKRktyBRIDS1RNGhwSCjIwMjctMDYtMTMoAmoFEgNLVE1yBRIDSkZLQgEBSAGYAQE=&hl=en-US&curr=USD"
+  },
+  "last_alerted_price": null,
+  "current_best": {
+    "price": 1361,
+    "origin": "JFK",
+    "depart": "2027-05-17",
+    "return": "2027-06-13",
+    "airlines": "Cathay Pacific",
+    "route": "JFK > HKG > KTM",
+    "stops": 1,
+    "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDUtMTcoAmoFEgNKRktyBRIDS1RNGhwSCjIwMjctMDYtMTMoAmoFEgNLVE1yBRIDSkZLQgEBSAGYAQE=&hl=en-US&curr=USD"
+  },
+  "top_pairs": [
+    [
+      "JFK",
+      "2027-05-17",
+      "2027-06-13"
+    ],
+    [
+      "JFK",
+      "2027-05-17",
+      "2027-06-14"
+    ],
+    [
+      "JFK",
+      "2027-05-17",
+      "2027-06-16"
+    ],
+    [
+      "JFK",
+      "2027-05-18",
+      "2027-06-13"
+    ],
+    [
+      "JFK",
+      "2027-05-18",
+      "2027-06-14"
+    ]
+  ],
+  "failed_runs": 0,
+  "last_summary_date": "2026-09-29",
+  "history": [
+    {
+      "time": "2026-09-29T02:50+00:00",
+      "mode": "full",
+      "price": 1361,
+      "depart": "2027-05-17",
+      "return": "2027-06-13",
+      "origin": "JFK"
+    }
+  ]
+}
