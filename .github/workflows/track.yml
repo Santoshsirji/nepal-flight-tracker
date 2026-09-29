@@ -24,6 +24,8 @@ jobs:
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: main   # latest state, not the commit from when this run was queued
 
       - uses: actions/setup-python@v6
         with:
@@ -45,5 +47,6 @@ jobs:
           git add state.json 2>/dev/null || exit 0
           git diff --cached --quiet && exit 0
           git commit -m "Update flight state"
-          git pull --rebase
+          # If another run saved in the meantime, keep its state and drop ours.
+          git pull --rebase || { git rebase --abort; exit 0; }
           git push
