@@ -2,13 +2,14 @@ name: Track flights
 
 on:
   schedule:
-    - cron: "5 */3 * * *"    # full scan of every date pair, every 3 hours
-    - cron: "*/20 * * * *"   # quick re-check of the cheapest pairs, every 20 min
+    # Backup timer only: GitHub skips many scheduled runs, so cron-job.org
+    # triggers this workflow every 20 minutes through workflow_dispatch.
+    - cron: "*/20 * * * *"
   workflow_dispatch:
     inputs:
       mode:
-        description: "full, quick, or test"
-        default: "full"
+        description: "auto, full, quick, or test"
+        default: "auto"
 
 permissions:
   contents: write
@@ -34,15 +35,7 @@ jobs:
       - name: Run tracker
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            MODE="${{ inputs.mode }}"
-          elif [ "${{ github.event.schedule }}" = "5 */3 * * *" ]; then
-            MODE=full
-          else
-            MODE=quick
-          fi
-          python tracker.py "$MODE"
+        run: python tracker.py "${{ inputs.mode || 'auto' }}"
 
       - name: Save state
         if: always()

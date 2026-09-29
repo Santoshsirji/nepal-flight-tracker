@@ -15,5 +15,6 @@
   "daily_summary": true,
   "daily_summary_hour_utc": 14,
 
-  "quick_check_top_n": 5
+  "quick_check_top_n": 5,
+  "full_scan_every_hours": 3
 }

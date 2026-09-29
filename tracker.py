@@ -7,6 +7,7 @@ fare drops below the target price and beats the cheapest fare seen so far.
 Usage:
     python tracker.py full      # scan every departure date x stay length
     python tracker.py quick     # re-check only the cheapest date pairs found so far
+    python tracker.py auto      # full if the last full scan is older than full_scan_every_hours, else quick
     python tracker.py test      # send a test notification
 
 Environment:
@@ -241,6 +242,14 @@ def process(found, state, full_scan):
         state["last_summary_date"] = today
 
 
+def hours_since_full_scan(state):
+    fulls = [h["time"] for h in state["history"] if h["mode"] == "full"]
+    if not fulls:
+        return float("inf")
+    last = datetime.fromisoformat(fulls[-1])
+    return (datetime.now(timezone.utc) - last).total_seconds() / 3600
+
+
 def main():
     mode = sys.argv[1] if len(sys.argv) > 1 else "full"
     if mode == "test":
@@ -248,6 +257,8 @@ def main():
         return
 
     state = load_state()
+    if mode == "auto":
+        mode = "full" if hours_since_full_scan(state) >= CONFIG["full_scan_every_hours"] else "quick"
     if mode == "quick" and state["top_pairs"]:
         jobs = [tuple(p) for p in state["top_pairs"]]
         full_scan = False
