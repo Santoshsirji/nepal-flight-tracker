@@ -2,8 +2,8 @@
   "origins": ["JFK", "EWR"],
   "destination": "KTM",
 
-  "depart_from": "2027-05-15",
-  "depart_to": "2027-06-04",
+  "depart_from": "2027-05-20",
+  "depart_to": "2027-05-30",
   "stay_min_days": 25,
   "stay_max_days": 32,
 
