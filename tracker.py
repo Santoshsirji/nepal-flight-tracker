@@ -49,7 +49,7 @@ def build_query(origin, depart, ret):
 
 
 def parse_results(html):
-    """Return [(price, airlines, route)] from a Google Flights results page.
+    """Return ([(price, airlines, route)], unpriced_count) from a results page.
 
     Parsed here rather than with fast_flights.parse(), which crashes when an
     itinerary has no price listed.
@@ -60,10 +60,10 @@ def parse_results(html):
     js = script.text()
     data = js.split("data:", 1)[1].rsplit(",", 1)[0]
     if data.endswith("errorHasStatus: true"):
-        return []
+        return [], 0
     payload = json.loads(data)
 
-    results = []
+    results, unpriced = [], 0
     for section in (payload[2], payload[3]):  # "best" and "other" flights
         if not section or not section[0]:
             continue
@@ -71,26 +71,45 @@ def parse_results(html):
             try:
                 price = item[1][0][1]
             except (IndexError, TypeError):
-                continue  # itinerary listed without a price
+                unpriced += 1  # itinerary listed without a price
+                continue
             flight = item[0]
             legs = flight[2]
             route = " > ".join([legs[0][3]] + [leg[6] for leg in legs])
             results.append((price, ", ".join(flight[1]), route))
-    return results
+    return results, unpriced
+
+
+def fetch_results(q, label):
+    """parse_results() for a query, retrying on errors. None if all attempts fail."""
+    for attempt in range(3):
+        try:
+            return parse_results(fetch_flights_html(q))
+        except Exception as e:
+            print(f"  ! {label} attempt {attempt + 1}: {e}")
+            time.sleep(5 * (attempt + 1))
+    return None
 
 
 def search(origin, depart, ret):
     """Cheapest result for one date pair, or None."""
     q = build_query(origin, depart, ret)
-    for attempt in range(3):
-        try:
-            results = parse_results(fetch_flights_html(q))
-            break
-        except Exception as e:
-            print(f"  ! {origin} {depart}->{ret} attempt {attempt + 1}: {e}")
-            time.sleep(5 * (attempt + 1))
-    else:
+    label = f"{origin} {depart}->{ret}"
+    fetched = fetch_results(q, label)
+    if fetched is None:
         return None
+    results, unpriced = fetched
+    # Google sometimes lists a flight (often Air India) without its price and
+    # includes the price on a later request, so ask again a couple of times.
+    for _ in range(CONFIG["unpriced_retries"]):
+        if not unpriced:
+            break
+        time.sleep(random.uniform(1.5, 3.0))
+        fetched = fetch_results(q, label)
+        if fetched is None:
+            break
+        more, unpriced = fetched
+        results += more
     if not results:
         return None
     price, airlines, route = min(results)

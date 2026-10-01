@@ -27,6 +27,7 @@ Edit it on github.com (pencil icon), commit, and the next run uses the new value
 | `target_price` | Alert when a fare in USD drops below this |
 | `alert_on_any_new_low` | `true` = also alert on every new low above the target |
 | `daily_summary` / `daily_summary_hour_utc` | Daily status message (14 UTC = 10am Eastern) |
+| `unpriced_retries` | Extra searches when Google lists a flight without its price (it often adds the price on a later request) |
 
 ## Manual controls
 Actions tab → **Track flights** → **Run workflow** → mode `full`, `quick`, or `test`.
