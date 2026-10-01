@@ -1401,6 +1401,14 @@
       "depart": "2027-05-20",
       "return": "2027-06-16",
       "origin": "JFK"
+    },
+    {
+      "time": "2026-10-01T13:22+00:00",
+      "mode": "quick",
+      "price": 1362,
+      "depart": "2027-05-20",
+      "return": "2027-06-16",
+      "origin": "JFK"
     }
   ],
   "watch_pairs": [
