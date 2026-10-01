@@ -5,7 +5,7 @@ notification to your phone when a fare drops below your target price.
 It runs on GitHub Actions for free, so no computer needs to be on.
 
 - **Full scan every 3 hours:** every departure date x every stay length (default: 21 x 11 = 231 searches per home airport)
-- **Quick check every 20 minutes:** the 5 cheapest date pairs from the last full scan
+- **Quick check every 20 minutes:** the 5 cheapest date pairs from the last full scan, plus up to 10 date pairs where Google listed a flight without its price (e.g. Air India), so a hidden fare is caught when it reappears
 - **Alert** when the cheapest fare is under `target_price` **and** cheaper than the last alert, so each alert means a new low
 - **Daily summary** (low priority) with the current cheapest fare, so you know it's still running
 - **Warning** if 6 runs in a row find nothing (e.g. Google blocking requests)
@@ -28,6 +28,7 @@ Edit it on github.com (pencil icon), commit, and the next run uses the new value
 | `alert_on_any_new_low` | `true` = also alert on every new low above the target |
 | `daily_summary` / `daily_summary_hour_utc` | Daily status message (14 UTC = 10am Eastern) |
 | `unpriced_retries` | Extra searches when Google lists a flight without its price (it often adds the price on a later request) |
+| `watch_unpriced_max` | How many of those "price missing" date pairs the 20-minute quick checks also re-search |
 
 ## Manual controls
 Actions tab → **Track flights** → **Run workflow** → mode `full`, `quick`, or `test`.

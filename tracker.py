@@ -31,6 +31,10 @@ ROOT = Path(__file__).parent
 CONFIG = json.loads((ROOT / "config.json").read_text())
 STATE_FILE = ROOT / "state.json"
 
+# Date pairs where a flight was still listed without a price after retries,
+# mapped to the cheapest priced fare on that page (filled in by search()).
+UNPRICED_PAIRS = {}
+
 
 # ---------------------------------------------------------------- searching
 
@@ -110,6 +114,8 @@ def search(origin, depart, ret):
             break
         more, unpriced = fetched
         results += more
+    if unpriced:
+        UNPRICED_PAIRS[(origin, depart, ret)] = min(results)[0] if results else float("inf")
     if not results:
         return None
     price, airlines, route = min(results)
@@ -161,6 +167,7 @@ def load_state():
         "last_alerted_price": None,
         "current_best": None,     # cheapest fare in the latest scan
         "top_pairs": [],          # cheapest date pairs from the last full scan
+        "watch_pairs": [],        # pairs with flights listed without a price
         "failed_runs": 0,
         "last_summary_date": None,
         "history": [],
@@ -222,6 +229,10 @@ def process(found, state, full_scan):
             if len(top) >= CONFIG["quick_check_top_n"]:
                 break
         state["top_pairs"] = top
+        # Hidden fares: pairs where Google showed a flight without its price.
+        # Quick checks re-search them so a price that appears later is caught.
+        watch = sorted(UNPRICED_PAIRS, key=lambda k: UNPRICED_PAIRS[k])
+        state["watch_pairs"] = [list(k) for k in watch[:CONFIG["watch_unpriced_max"]]]
         state["current_best"] = best
     elif state["current_best"] is None or best["price"] <= state["current_best"]["price"]:
         state["current_best"] = best
@@ -280,6 +291,7 @@ def main():
         mode = "full" if hours_since_full_scan(state) >= CONFIG["full_scan_every_hours"] else "quick"
     if mode == "quick" and state["top_pairs"]:
         jobs = [tuple(p) for p in state["top_pairs"]]
+        jobs += [tuple(p) for p in state.get("watch_pairs", []) if tuple(p) not in jobs]
         full_scan = False
     else:
         jobs = [(o, d, r) for o in CONFIG["origins"] for d, r in all_date_pairs()]

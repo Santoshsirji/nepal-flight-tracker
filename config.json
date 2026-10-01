@@ -17,5 +17,6 @@
 
   "quick_check_top_n": 5,
   "full_scan_every_hours": 3,
-  "unpriced_retries": 2
+  "unpriced_retries": 2,
+  "watch_unpriced_max": 10
 }
