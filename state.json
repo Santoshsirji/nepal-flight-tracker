@@ -11,7 +11,7 @@
   },
   "last_alerted_price": 1361,
   "current_best": {
-    "price": 1362,
+    "price": 1361,
     "origin": "JFK",
     "depart": "2027-05-20",
     "return": "2027-06-14",
@@ -2766,6 +2766,14 @@
       "time": "2026-10-03T05:46+00:00",
       "mode": "quick",
       "price": 1362,
+      "depart": "2027-05-20",
+      "return": "2027-06-14",
+      "origin": "JFK"
+    },
+    {
+      "time": "2026-10-03T06:01+00:00",
+      "mode": "quick",
+      "price": 1361,
       "depart": "2027-05-20",
       "return": "2027-06-14",
       "origin": "JFK"
