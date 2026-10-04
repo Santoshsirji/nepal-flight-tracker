@@ -48,7 +48,7 @@
     ]
   ],
   "failed_runs": 0,
-  "last_summary_date": "2026-10-03",
+  "last_summary_date": "2026-10-04",
   "history": [
     {
       "time": "2026-09-29T02:50+00:00",
@@ -3836,6 +3836,14 @@
     },
     {
       "time": "2026-10-04T13:47+00:00",
+      "mode": "quick",
+      "price": 1361,
+      "depart": "2027-05-20",
+      "return": "2027-06-14",
+      "origin": "JFK"
+    },
+    {
+      "time": "2026-10-04T14:02+00:00",
       "mode": "quick",
       "price": 1361,
       "depart": "2027-05-20",
