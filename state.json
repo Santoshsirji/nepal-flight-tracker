@@ -14,11 +14,11 @@
     "price": 1361,
     "origin": "JFK",
     "depart": "2027-05-20",
-    "return": "2027-06-14",
+    "return": "2027-06-16",
     "airlines": "Cathay Pacific",
     "route": "JFK > HKG > KTM",
     "stops": 1,
-    "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDUtMjAoAmoFEgNKRktyBRIDS1RNGhwSCjIwMjctMDYtMTQoAmoFEgNLVE1yBRIDSkZLQgEBSAGYAQE=&hl=en-US&curr=USD"
+    "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDUtMjAoAmoFEgNKRktyBRIDS1RNGhwSCjIwMjctMDYtMTYoAmoFEgNLVE1yBRIDSkZLQgEBSAGYAQE=&hl=en-US&curr=USD"
   },
   "top_pairs": [
     [
@@ -3936,6 +3936,14 @@
       "price": 1361,
       "depart": "2027-05-20",
       "return": "2027-06-14",
+      "origin": "JFK"
+    },
+    {
+      "time": "2026-10-04T16:46+00:00",
+      "mode": "quick",
+      "price": 1361,
+      "depart": "2027-05-20",
+      "return": "2027-06-16",
       "origin": "JFK"
     }
   ],
