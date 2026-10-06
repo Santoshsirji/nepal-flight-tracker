@@ -13,51 +13,43 @@
   "current_best": {
     "price": 1361,
     "origin": "JFK",
-    "depart": "2027-05-24",
-    "return": "2027-06-20",
+    "depart": "2027-05-20",
+    "return": "2027-06-14",
     "airlines": "Cathay Pacific",
     "route": "JFK > HKG > KTM",
     "stops": 1,
-    "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDUtMjQoAmoFEgNKRktyBRIDS1RNGhwSCjIwMjctMDYtMjAoAmoFEgNLVE1yBRIDSkZLQgEBSAGYAQE=&hl=en-US&curr=USD"
+    "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDUtMjAoAmoFEgNKRktyBRIDS1RNGhwSCjIwMjctMDYtMTQoAmoFEgNLVE1yBRIDSkZLQgEBSAGYAQE=&hl=en-US&curr=USD"
   },
   "top_pairs": [
     [
       "JFK",
-      "2027-05-24",
+      "2027-05-20",
+      "2027-06-14"
+    ],
+    [
+      "JFK",
+      "2027-05-20",
+      "2027-06-16"
+    ],
+    [
+      "JFK",
+      "2027-05-20",
+      "2027-06-19"
+    ],
+    [
+      "JFK",
+      "2027-05-20",
       "2027-06-20"
     ],
     [
       "JFK",
-      "2027-05-24",
+      "2027-05-20",
       "2027-06-21"
-    ],
-    [
-      "JFK",
-      "2027-05-24",
-      "2027-06-22"
-    ],
-    [
-      "JFK",
-      "2027-05-25",
-      "2027-06-23"
-    ],
-    [
-      "JFK",
-      "2027-05-25",
-      "2027-06-26"
     ]
   ],
   "failed_runs": 0,
   "last_summary_date": "2026-10-06",
   "history": [
-    {
-      "time": "2026-10-01T13:16+00:00",
-      "mode": "quick",
-      "price": 1362,
-      "depart": "2027-05-20",
-      "return": "2027-06-16",
-      "origin": "JFK"
-    },
     {
       "time": "2026-10-01T13:22+00:00",
       "mode": "quick",
@@ -4049,58 +4041,66 @@
       "depart": "2027-05-24",
       "return": "2027-06-20",
       "origin": "JFK"
+    },
+    {
+      "time": "2026-10-06T15:57+00:00",
+      "mode": "full",
+      "price": 1361,
+      "depart": "2027-05-20",
+      "return": "2027-06-14",
+      "origin": "JFK"
     }
   ],
   "watch_pairs": [
     [
       "JFK",
-      "2027-05-25",
-      "2027-06-23"
-    ],
-    [
-      "JFK",
-      "2027-05-28",
-      "2027-06-23"
-    ],
-    [
-      "JFK",
-      "2027-05-29",
-      "2027-06-23"
-    ],
-    [
-      "JFK",
-      "2027-05-29",
-      "2027-06-30"
-    ],
-    [
-      "JFK",
-      "2027-05-26",
-      "2027-06-26"
-    ],
-    [
-      "JFK",
-      "2027-05-30",
-      "2027-06-25"
+      "2027-05-20",
+      "2027-06-14"
     ],
     [
       "JFK",
       "2027-05-20",
-      "2027-06-15"
+      "2027-06-16"
     ],
     [
-      "EWR",
+      "JFK",
+      "2027-05-20",
+      "2027-06-19"
+    ],
+    [
+      "JFK",
       "2027-05-20",
       "2027-06-20"
     ],
     [
-      "EWR",
-      "2027-05-22",
-      "2027-06-16"
+      "JFK",
+      "2027-05-20",
+      "2027-06-21"
     ],
     [
-      "EWR",
-      "2027-05-27",
+      "JFK",
+      "2027-05-24",
+      "2027-06-20"
+    ],
+    [
+      "JFK",
+      "2027-05-24",
       "2027-06-21"
+    ],
+    [
+      "JFK",
+      "2027-05-24",
+      "2027-06-22"
+    ],
+    [
+      "JFK",
+      "2027-05-24",
+      "2027-06-23"
+    ],
+    [
+      "JFK",
+      "2027-05-25",
+      "2027-06-20"
     ]
   ]
 }
