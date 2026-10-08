@@ -48,16 +48,8 @@
     ]
   ],
   "failed_runs": 0,
-  "last_summary_date": "2026-10-07",
+  "last_summary_date": "2026-10-08",
   "history": [
-    {
-      "time": "2026-10-03T10:16+00:00",
-      "mode": "quick",
-      "price": 1361,
-      "depart": "2027-05-20",
-      "return": "2027-06-14",
-      "origin": "JFK"
-    },
     {
       "time": "2026-10-03T10:31+00:00",
       "mode": "quick",
@@ -4044,6 +4036,14 @@
     },
     {
       "time": "2026-10-08T13:46+00:00",
+      "mode": "quick",
+      "price": 1361,
+      "depart": "2027-05-20",
+      "return": "2027-06-14",
+      "origin": "JFK"
+    },
+    {
+      "time": "2026-10-08T14:01+00:00",
       "mode": "quick",
       "price": 1361,
       "depart": "2027-05-20",
