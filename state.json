@@ -51,14 +51,6 @@
   "last_summary_date": "2026-11-18",
   "history": [
     {
-      "time": "2026-11-13T12:01+00:00",
-      "mode": "quick",
-      "price": 1362,
-      "depart": "2027-05-20",
-      "return": "2027-06-14",
-      "origin": "JFK"
-    },
-    {
       "time": "2026-11-13T12:16+00:00",
       "mode": "quick",
       "price": 1362,
@@ -4049,6 +4041,14 @@
       "depart": "2027-05-28",
       "return": "2027-06-27",
       "origin": "EWR"
+    },
+    {
+      "time": "2026-11-18T14:15+00:00",
+      "mode": "quick",
+      "price": 1362,
+      "depart": "2027-05-20",
+      "return": "2027-06-19",
+      "origin": "JFK"
     }
   ],
   "watch_pairs": [
