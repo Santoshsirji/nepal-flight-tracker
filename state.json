@@ -11,7 +11,7 @@
   },
   "last_alerted_price": 1205,
   "current_best": {
-    "price": 1261,
+    "price": 1205,
     "origin": "JFK",
     "depart": "2027-05-20",
     "return": "2027-06-20",
@@ -50,14 +50,6 @@
   "failed_runs": 0,
   "last_summary_date": "2026-11-25",
   "history": [
-    {
-      "time": "2026-11-21T02:16+00:00",
-      "mode": "full",
-      "price": 1362,
-      "depart": "2027-05-20",
-      "return": "2027-06-14",
-      "origin": "JFK"
-    },
     {
       "time": "2026-11-21T02:18+00:00",
       "mode": "quick",
@@ -4048,6 +4040,14 @@
       "price": 1363,
       "depart": "2027-05-20",
       "return": "2027-06-19",
+      "origin": "JFK"
+    },
+    {
+      "time": "2026-11-26T06:47+00:00",
+      "mode": "quick",
+      "price": 1205,
+      "depart": "2027-05-20",
+      "return": "2027-06-20",
       "origin": "JFK"
     }
   ],
