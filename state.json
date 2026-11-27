@@ -47,17 +47,9 @@
       "2027-06-23"
     ]
   ],
-  "failed_runs": 1,
+  "failed_runs": 0,
   "last_summary_date": "2026-11-26",
   "history": [
-    {
-      "time": "2026-11-21T22:01+00:00",
-      "mode": "quick",
-      "price": 1362,
-      "depart": "2027-05-20",
-      "return": "2027-06-16",
-      "origin": "JFK"
-    },
     {
       "time": "2026-11-21T22:16+00:00",
       "mode": "quick",
@@ -4049,6 +4041,14 @@
       "depart": "2027-05-24",
       "return": "2027-06-23",
       "origin": "JFK"
+    },
+    {
+      "time": "2026-11-27T04:01+00:00",
+      "mode": "quick",
+      "price": 1863,
+      "depart": "2027-05-27",
+      "return": "2027-06-24",
+      "origin": "EWR"
     }
   ],
   "watch_pairs": [
