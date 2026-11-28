@@ -51,14 +51,6 @@
   "last_summary_date": "2026-11-27",
   "history": [
     {
-      "time": "2026-11-23T00:46+00:00",
-      "mode": "quick",
-      "price": 1362,
-      "depart": "2027-05-20",
-      "return": "2027-06-14",
-      "origin": "JFK"
-    },
-    {
       "time": "2026-11-23T01:02+00:00",
       "mode": "quick",
       "price": 1362,
@@ -4048,6 +4040,14 @@
       "price": 1363,
       "depart": "2027-05-20",
       "return": "2027-06-20",
+      "origin": "JFK"
+    },
+    {
+      "time": "2026-11-28T09:45+00:00",
+      "mode": "quick",
+      "price": 1413,
+      "depart": "2027-05-30",
+      "return": "2027-06-30",
       "origin": "JFK"
     }
   ],
